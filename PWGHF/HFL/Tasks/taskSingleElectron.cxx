@@ -13,6 +13,8 @@
 /// \brief task for electrons from heavy-flavour hadron decays
 /// \author Jonghan Park (Jeonbuk National University)
 
+#include "PWGHF/vertexing/RecoDecay.h"
+
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
@@ -20,8 +22,6 @@
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-
-#include "PWGHF/vertexing/RecoDecay.h"
 
 using namespace o2;
 using namespace o2::constants::math;
@@ -161,9 +161,9 @@ struct HfTaskSingleElectron {
   template <typename TrackType>
   bool assoTrackSel(TrackType track)
   {
-	float ptAssoTrackMin = 4.0f;
-	float ptAssoTrackMax = 6.0f;
-	int tpcNClsAssoTrackMin = 60;
+    float ptAssoTrackMin = 4.0f;
+    float ptAssoTrackMax = 6.0f;
+    int tpcNClsAssoTrackMin = 60;
 
     if (std::abs(track.eta()) > etaTrackMax)
       return false;
